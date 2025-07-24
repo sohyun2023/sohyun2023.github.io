@@ -2,7 +2,7 @@
 <html lang="ko" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-2.0">
     <title>이소현 | Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -15,95 +15,30 @@
         .bg-pattern { background-color: #f8f6f2; background-image: radial-gradient(#d1d5db 0.5px, transparent 0.5px); background-size: 15px 15px; }
         .nav-link.active { color: #2563eb; font-weight: 700; }
         .project-tab.active, .research-tab.active { background-color: #3b82f6; color: white; }
+        /* Adjusted chart-container to image-container for flexibility with multiple images */
         .image-container { 
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-            min-height: 200px;
+            display: flex; /* Default to flex for row layout */
+            flex-wrap: wrap; /* Allow wrapping for multiple images */
+            gap: 1rem; /* Space between images */
+            justify-content: center; /* Center images horizontally */
+            align-items: center; /* Center images vertically */
+            width: 100%; /* Take full width of its parent grid column */
+            min-height: 200px; /* Ensure some height */
         }
-        .image-container.flex-col-layout {
+        .image-container.flex-col-layout { /* New class for forcing column layout for images inside */
             flex-direction: column;
         }
         .image-container img {
-            max-width: 100%;
-            height: auto;
-            object-fit: contain;
+            max-width: 100%; /* Ensure images don't overflow */
+            height: auto; /* Maintain aspect ratio */
+            object-fit: contain; /* Ensure full image is visible */
             border-radius: 0.5rem;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
         }
+        /* Responsive adjustment for image container on small screens */
         @media (max-width: 768px) {
-            .image-container { flex-direction: column; }
+            .image-container { flex-direction: column; } /* Always stack on mobile */
         }
-
-        /* --- PDF 인쇄용 스타일 시작 --- */
-        @media print {
-            /* 기본 설정 */
-            body {
-                font-size: 10pt; /* PDF 가독성을 위한 폰트 크기 조정 */
-                -webkit-print-color-adjust: exact; /* 브라우저에서 색상 강제 출력 */
-                print-color-adjust: exact;
-            }
-
-            /* 페이지 나누기: 각 섹션이 새 페이지에서 시작되도록 설정 */
-            section {
-                page-break-before: always;
-                page-break-inside: avoid; /* 섹션 내용이 페이지 중간에 잘리지 않도록 함 */
-            }
-            #home {
-                page-break-before: avoid; /* 첫 페이지는 나누지 않음 */
-            }
-
-            /* 불필요한 UI 요소 숨기기 */
-            #header, footer, #mobile-menu-button, .project-tab, .research-tab, #thanks {
-                display: none !important;
-            }
-
-            /* 숨겨진 탭 콘텐츠 모두 보이게 하기 */
-            .project-pane, .research-pane {
-                display: block !important;
-                page-break-inside: avoid; /* 탭 내용이 잘리지 않도록 함 */
-                margin-top: 2rem;
-                box-shadow: none !important;
-                border: 1px solid #e5e7eb; /* 구분을 위한 얇은 테두리 추가 */
-            }
-            
-            /* 배경 패턴, 그림자 등 인쇄에 불필요한 효과 제거 */
-            .bg-pattern, .shadow-lg, .shadow-md {
-                background-image: none !important;
-                background-color: transparent !important;
-                box-shadow: none !important;
-            }
-            
-            /* 링크 색상 및 밑줄 제거 */
-            a {
-                color: inherit !important;
-                text-decoration: none !important;
-            }
-
-            /* 레이아웃 및 여백 조정 */
-            .py-20, .py-32 {
-                padding-top: 2rem !important;
-                padding-bottom: 2rem !important;
-            }
-            .container {
-                max-width: 100% !important;
-                padding-left: 0 !important;
-                padding-right: 0 !important;
-            }
-            main {
-                padding: 0 !important;
-            }
-            
-            /* 이미지 크기 고정 (잘림 방지) */
-            img {
-                max-width: 100% !important;
-                height: auto !important;
-            }
-        }
-        /* --- PDF 인쇄용 스타일 끝 --- */
     </style>
 </head>
 <body class="bg-stone-50 text-stone-800">
@@ -147,10 +82,10 @@
                             <img src="https://i.imgur.com/P7K1QyT.jpeg" alt="이소현 증명사진" class="w-72 h-72 mx-auto rounded-full object-cover shadow-lg">
                             <h3 class="text-2xl font-bold mt-6">이소현</h3>
                             <div class="mt-6 text-left inline-block space-y-2">
-                                    <p><i class="fas fa-birthday-cake fa-fw mr-2 text-blue-500"></i> 98.10.13</p>
-                                    <p><i class="fas fa-map-marker-alt fa-fw mr-2 text-blue-500"></i> Seoul, Korea</p>
-                                    <p><i class="fas fa-envelope fa-fw mr-2 text-blue-500"></i> kb053339@postech.ac.kr</p>
-                                    <p><i class="fas fa-phone fa-fw mr-2 text-blue-500"></i> 010-7100-9813</p>
+                                 <p><i class="fas fa-birthday-cake fa-fw mr-2 text-blue-500"></i> 98.10.13</p>
+                                 <p><i class="fas fa-map-marker-alt fa-fw mr-2 text-blue-500"></i> Seoul, Korea</p>
+                                 <p><i class="fas fa-envelope fa-fw mr-2 text-blue-500"></i> kb053339@postech.ac.kr</p>
+                                 <p><i class="fas fa-phone fa-fw mr-2 text-blue-500"></i> 010-7100-9813</p>
                             </div>
                         </div>
                         <div class="w-full md:w-2/3">
@@ -162,7 +97,7 @@
                                         <p><strong>이화여자대학교</strong> | 학사 <span class="text-sm text-stone-500">(18.03 ~ 23.02)</span><br><span class="ml-4">- 기계공학부 졸업 (데이터공학 트랙 이수)</span></p>
                                     </div>
                                 </div>
-                                    <div>
+                                 <div>
                                     <h4 class="text-xl font-bold border-l-4 border-blue-500 pl-4 mb-4">Skills</h4>
                                     <div class="flex flex-wrap gap-3 ml-2">
                                         <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full font-medium">Python</span>
@@ -224,8 +159,9 @@
                                     </ul>
                                 </div>
                                 <div class="image-container flex-col-layout items-center gap-3">
-                                    <img src="https://i.imgur.com/BFSOgqs.png" alt="스포츠 마케팅 이미지 1" class="max-w-[340px] max-h-[260px] w-full" />
-                                    <img src="https://i.imgur.com/kPPwgk9.png" alt="스포츠 마케팅 이미지 2" class="max-w-[340px] max-h-[260px] w-full" />
+                                    <!-- Increased size slightly -->
+                                    <img src="https://i.imgur.com/BFSOgqs.png" alt="" class="max-w-[340px] max-h-[260px] w-full" />
+                                    <img src="https://i.imgur.com/kPPwgk9.png" alt="" class="max-w-[340px] max-h-[260px] w-full" />
                                 </div>
                             </div>
                         </div>
@@ -244,8 +180,8 @@
                                     <h4 class="font-bold text-lg mt-4 mb-2">느낀점 및 성과</h4>
                                     <p>채용 과정의 효율성을 개선하고자 팀원들과 직접 아이디어를 내고 구현한 프로젝트입니다. 외국인 팀원들과의 협업 과정에서 언어적 차이를 극복하며 소통하고 협업하는 경험을 얻을 수 있었으며, 해당 아이디어와 구현 샘플에 대해 좋은 평가를 받았습니다.</p>
                                 </div>
-                                    <div class="image-container">
-                                    <img src="https://i.imgur.com/KgjvJ0r.png" alt="AI 채용 시스템 이미지" class="w-full">
+                                 <div class="image-container">
+                                    <img src="https://i.imgur.com/KgjvJ0r.png" alt="" class="w-full">
                                 </div>
                             </div>
                         </div>
@@ -269,8 +205,8 @@
                                     </ul>
                                 </div>
                                 <div class="image-container flex-col-layout items-center w-[230px] ml-6">
-                                    <img src="https://i.imgur.com/StPkVYs.png" alt="교육 플랫폼 분석 이미지 1" class="w-full max-w-[230px] h-auto object-contain mx-auto" />
-                                    <img src="https://i.imgur.com/yiNwTsM.png" alt="교육 플랫폼 분석 이미지 2" class="w-full max-w-[230px] h-auto object-contain mx-auto" />
+                                    <img src="https://i.imgur.com/StPkVYs.png" alt="" class="w-full max-w-[230px] h-auto object-contain mx-auto" />
+                                    <img src="https://i.imgur.com/yiNwTsM.png" alt="" class="w-full max-w-[230px] h-auto object-contain mx-auto" />
                                 </div>
                             </div>
                         </div>
@@ -293,8 +229,9 @@
                                     </ul>
                                 </div>
                                 <div class="image-container flex-col-layout">
-                                    <img src="https://i.imgur.com/uwNJijz.png" alt="액티브 시니어 지표 이미지 1" class="max-w-[220px] max-h-[280px] w-full mx-auto" />
-                                    <img src="https://i.imgur.com/lEjIdTJ.jpeg" alt="액티브 시니어 지표 이미지 2" class="max-w-[220px] max-h-[280px] w-full mx-auto" />
+                                    <!-- Image size for regional metrics remains as is -->
+                                    <img src="https://i.imgur.com/uwNJijz.png" alt="" class="max-w-[220px] max-h-[280px] w-full mx-auto" />
+                                    <img src="https://i.imgur.com/lEjIdTJ.jpeg" alt="" class="max-w-[220px] max-h-[280px] w-full mx-auto" />
                                 </div>
                             </div>
                         </div>
@@ -318,7 +255,7 @@
                                     </ul>
                                 </div>
                                 <div class="image-container flex-col-layout">
-                                    <img src="https://i.imgur.com/MFTmNgz.png" alt="중고차 가격 예측 이미지" class="w-full">
+                                    <img src="https://i.imgur.com/MFTmNgz.png" alt="" class="w-full">
                                 </div>
                             </div>
                         </div>
@@ -340,6 +277,7 @@
                         <div id="research-process-mining" class="research-pane">
                             <h3 class="text-2xl font-bold">프로세스 마이닝 기반 병원 운영 최적화 방안 도출</h3>
                             <p class="text-sm text-stone-500 mt-1 mb-4">Tech: Event Log Data, Process Mining, Data Analysis</p>
+                            <!-- Changed grid layout to single column on medium screens and below -->
                             <div class="grid md:grid-cols-1 gap-8">
                                 <div>
                                     <h4 class="font-bold text-lg mb-2">문제 정의</h4>
@@ -358,10 +296,11 @@
                                 </div>
                             </div>
                             <div class="image-container grid grid-cols-2 gap-4 mt-8">
-                                <img src="https://i.imgur.com/61zIG3k.png" alt="프로세스 마이닝 이미지 1" class="w-full h-auto max-w-[240px] max-h-[290px] object-contain rounded-lg shadow-md">
-                                <img src="https://i.imgur.com/EyjqK8T.png" alt="프로세스 마이닝 이미지 2" class="w-full h-auto max-w-[240px] max-h-[290px] object-contain rounded-lg shadow-md">
-                                <img src="https://i.imgur.com/nKENlce.png" alt="프로세스 마이닝 이미지 3" class="w-full h-auto max-w-[240px] max-h-[290px] object-contain rounded-lg shadow-md">
-                                <img src="https://i.imgur.com/CWIBLAQ.png" alt="프로세스 마이닝 이미지 4" class="w-full h-auto max-w-[240px] max-h-[290px] object-contain rounded-lg shadow-md">
+                                <!-- Images for Process Mining, 2x2 layout -->
+                                <img src="https://i.imgur.com/61zIG3k.png" alt="" class="w-full h-auto max-w-[240px] max-h-[290px] object-contain rounded-lg shadow-md">
+                                <img src="https://i.imgur.com/EyjqK8T.png" alt="" class="w-full h-auto max-w-[240px] max-h-[290px] object-contain rounded-lg shadow-md">
+                                <img src="https://i.imgur.com/nKENlce.png" alt="" class="w-full h-auto max-w-[240px] max-h-[290px] object-contain rounded-lg shadow-md">
+                                <img src="https://i.imgur.com/CWIBLAQ.png" alt="" class="w-full h-auto max-w-[240px] max-h-[290px] object-contain rounded-lg shadow-md">
                             </div>
                         </div>
                         <div id="research-llm" class="research-pane hidden">
@@ -379,8 +318,8 @@
                                     <p>시계열 데이터의 다양한 변화를 도메인 문맥 안에서 해석하고 분석하는 능력을 확보하여, 이는 향후 다양한 서비스 환경에서 자연어 형태의 분석 결과와 인사이트를 제공하는 범용 시계열 어시스턴트로 확장 가능한 기반을 마련하였습니다.</p>
                                 </div>
                                 <div class="image-container grid grid-cols-2 gap-4 mt-8 items-center">
-                                    <img src="https://i.imgur.com/oe1fFWR.png" alt="시계열 LLM 이미지 1" class="w-full h-auto max-w-[300px] object-contain rounded-lg shadow-md mx-auto" />
-                                    <img src="https://i.imgur.com/pPUiKXF.png" alt="시계열 LLM 이미지 2" class="w-full h-auto max-w-[300px] object-contain rounded-lg shadow-md mx-auto" />
+                                    <img src="https://i.imgur.com/oe1fFWR.png" alt="" class="w-full h-auto max-w-[300px] object-contain rounded-lg shadow-md mx-auto" />
+                                    <img src="https://i.imgur.com/pPUiKXF.png" alt="" class="w-full h-auto max-w-[300px] object-contain rounded-lg shadow-md mx-auto" />
                                 </div>
                             </div>
                         </div>
@@ -402,11 +341,9 @@
                     </div>
                     <div class="flex flex-row justify-center gap-6 mt-8">
                       <img src="https://i.imgur.com/XFYO2IW.png"
-                             alt="WISET 수상 이미지 1"
-                             class="w-[280px] h-[360px] object-contain rounded-lg shadow-md" />
+                           class="w-[280px] h-[360px] object-contain rounded-lg shadow-md" />
                       <img src="https://i.imgur.com/IgggcK1.png"
-                             alt="WISET 수상 이미지 2"
-                             class="w-[280px] h-[360px] object-contain rounded-lg shadow-md" />
+                           class="w-[280px] h-[360px] object-contain rounded-lg shadow-md" />
                     </div>
     
                 </div>
@@ -418,7 +355,7 @@
                 </div>
             </section>
         </main>
-    </div>     
+    </div>    
 
     <footer class="bg-stone-800 text-white py-12">
         <div class="container mx-auto px-6 text-center">
@@ -455,7 +392,7 @@
                 navLinks.forEach((link) => link.classList.remove('active'));
                 const activeLink = document.querySelector(`.nav-link[href="#${sections[index].id}"]`);
                 if(activeLink) {
-                    activeLink.classList.add('active');
+                   activeLink.classList.add('active');
                 }
             }
             window.addEventListener('scroll', updateActiveNavLink);
@@ -531,6 +468,8 @@
             if (initialResearchTab) {
                 activateResearchTab(initialResearchTab.getAttribute('data-target'));
             }
+
+            // Chart.js initialization is removed as per user request to replace with images
         });
     </script>
 </body>
